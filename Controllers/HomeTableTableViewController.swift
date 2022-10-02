@@ -35,8 +35,13 @@ class HomeTableTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
+    }
 
-    // MARK: - Table view data source
+  
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -104,6 +109,7 @@ class HomeTableTableViewController: UITableViewController {
         }, failure: { err in
             print("Could Not retrieve tweets! oh no!")
         })
+        
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
