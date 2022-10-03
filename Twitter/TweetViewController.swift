@@ -28,10 +28,6 @@ class TweetViewController: UIViewController {
             }, failure: { (error) in
                 print("Error posting tweet")
                 self.dismiss(animated: true, completion: nil)
-                
-                print("===================")
-                print(error.self)
-                print("===================")
             })
         } else {
             self.dismiss(animated: true, completion: nil)
@@ -41,6 +37,7 @@ class TweetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tweetTextView.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
